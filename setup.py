@@ -2,6 +2,7 @@ from setuptools import find_packages, setup
 
 requirements = [
     "bs4",
+    "python-dotenv",
     "requests",
     "twilio",
 ]
@@ -16,4 +17,10 @@ setup(
     install_requires=requirements,
     packages=find_packages("src"),
     package_dir={"": "src"},
+    entry_points={
+        "console_scripts": [
+            "cliq = shopper.cliq:main",
+            "text = shopper.sms:main",
+        ],
+    },
 )
